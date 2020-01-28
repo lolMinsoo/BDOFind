@@ -19,6 +19,8 @@ __version__ = '0.1.0'
 CBException = ConfiguredBotException('BDO Find Plugin')
 uses_configuration = True
 
+# local
+
 def get_commands(bot):
     new_commands = []
     
