@@ -74,7 +74,7 @@ class BDOFind():
     
     def _get_server_list(self):
         if not self.bell.upper() == '?': 
-		    # this will only set SERVERS to YES or ?, doesn't make sense to update bells to NO
+            # this will only set SERVERS to YES or ?, doesn't make sense to update bells to NO
             for bell_server in BELL_SERVERS:
                 if BELL_SERVERS[bell_server][0] == self.bell.upper():
                     self.servers[bell_server] == self.bell.upper()
@@ -82,39 +82,39 @@ class BDOFind():
 async def to_be_belled(bot, context):
     server = context.arguments[0]
     bell_minutes = context.arguments[1]
-	
+    
     response = Response()
-	
-	# check inputs
+    
+    # check inputs
     if server not in SERVERS:
         response.content = '{} is not a valid server.'.format(server)
-		return response
+        return response
     if bell_minutes < 1 or bell_minutes > 60:
         response.content = 'The bell time must be between 1 and 60 minutes.'
         return response
-	
-    # passes checks, update BELL_SERVERS
-	BELL_SERVERS[server] = ['YES', bell_minutes, round(time.time())]
     
-		
+    # passes checks, update BELL_SERVERS
+    BELL_SERVERS[server] = ['YES', bell_minutes, round(time.time())]
+    
+        
 async def _update_bell():
     for bell_server in BELL_SERVERS:
         if BELL_SERVERS[bell_server][0] == 'YES':
-		    if round(time.time()) - BELL_SERVERS[bell_server][2] > 
-			BELL_SERVERS[bell_server][1] * 60:
-			    BELL_SERVERS[bell_server] == ['?', 0, 0]
-			else:
-			    # called minutes - current time - called time
-			    BELL_SERVERS[bell_server] == ['YES', round(BELL_SERVERS[bell_server][1] - 
-				(time.time() - BELL_SERVERS[bell_server][2]) / 60), round(time.time)]
-				
+            if round(time.time()) - BELL_SERVERS[bell_server][2] > 
+            BELL_SERVERS[bell_server][1] * 60:
+                BELL_SERVERS[bell_server] == ['?', 0, 0]
+            else:
+                # called minutes - current time - called time
+                BELL_SERVERS[bell_server] == ['YES', round(BELL_SERVERS[bell_server][1] - 
+                (time.time() - BELL_SERVERS[bell_server][2]) / 60), round(time.time)]
+                
 async def _bell_loop():
     while True:
         if 'YES' in str(BELL_SERVERS):
             _update_bell()
         await asyncio.sleep(60)
 
-		
+        
 
 SERVERS = {
     'bal1': '?',
