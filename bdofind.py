@@ -1,3 +1,24 @@
+import requests
+import asyncio
+import datetime
+import time
+import random
+import math
+import urllib
+import json
+import io
+import discord
+
+from jshbot.utilities import future
+from jshbot import data, utilities, configurations, logger, plugins, parser
+from jshbot.exceptions import BotException, ConfiguredBotException, ErrorTypes
+from jshbot.commands import (
+    Command, SubCommand, Shortcut, ArgTypes, Attachment, Arg, Opt, MessageTypes, Response)
+	
+__version__ = '0.1.0'
+CBException = ConfiguredBotException('BDO Find Plugin')
+uses_configuration = True
+
 def get_commands(bot):
 	new_commands = []
 	
