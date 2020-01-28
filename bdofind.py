@@ -59,9 +59,18 @@ def get_commands(bot):
                 Opt('clearbell'),
                 Arg('server'),
                 doc='Clears a bell from a server',
-                function=to_be_bellcleared)],
+                function=to_be_bellcleared),
+            SubCommand(
+                Opt('info')
+                Arg('character_name'),
+                doc='Gets basic info on a character and their search history.',
+                function=to_be_info),
+            SubCommand(
+                Opt('list')
+                doc='Gets a list of names for who has been searched for in the past.',
+                function=to_be_list)
+                ],
         description='Keep track of what servers has been searched in BDO'))
-        
         return new_commands
 
 class BDOFind():
