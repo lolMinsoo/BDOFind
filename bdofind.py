@@ -105,6 +105,11 @@ async def to_be_belled(bot, context):
     # passes checks, update BELL_SERVERS
     BELL_SERVERS[server] = ['YES', bell_minutes, round(time.time())]
     
+async def to_be_called(bot, context):
+	character_name, server, status = context.arguments[0:]
+	
+	response = Response()
+	# implement a way to update the main UI for x character
         
 async def _update_bell():
     for bell_server in BELL_SERVERS:
@@ -126,41 +131,41 @@ async def _bell_loop():
         
 
 SERVERS = {
-    'bal1': '?',
-    'bal2': '?',
-    'bal3': '?',
-    'bal4': '?',
-    'bal5': '?',
-    'bal6': '?',
-    'val1': '?',
-    'val2': '?',
-    'val3': '?',
-    'val4': '?',
-    'val5': '?',
-    'val6': '?',
-    'cal1': '?',
-    'cal2': '?',
-    'cal3': '?',
-    'cal4': '?',
-    'cal5': '?',
-    'cal6': '?',
-    'ser1': '?',
-    'ser2': '?',
-    'ser3': '?',
-    'ser4': '?',
-    'ser5': '?',
-    'ser6': '?',
-    'med1': '?',
-    'med2': '?',
-    'med3': '?',
-    'med4': '?',
-    'med5': '?',
-    'med6': '?',
-    'kam1': '?',
-    'kam2': '?',
-    'kam3': '?',
-    'kam4': '?',
-    'arsha': '?'
+    'bal1': ['?', ''],
+    'bal2': ['?', ''],
+    'bal3': ['?', ''],
+    'bal4': ['?', ''],
+    'bal5': ['?', ''],
+    'bal6': ['?', ''],
+    'val1': ['?', ''],
+    'val2': ['?', ''],
+    'val3': ['?', ''],
+    'val4': ['?', ''],
+    'val5': ['?', ''],
+    'val6': ['?', ''],
+    'cal1': ['?', ''],
+    'cal2': ['?', ''],
+    'cal3': ['?', ''],
+    'cal4': ['?', ''],
+    'cal5': ['?', ''],
+    'cal6': ['?', ''],
+    'ser1': ['?', ''],
+    'ser2': ['?', ''],
+    'ser3': ['?', ''],
+    'ser4': ['?', ''],
+    'ser5': ['?', ''],
+    'ser6': ['?', ''],
+    'med1': ['?', ''],
+    'med2': ['?', ''],
+    'med3': ['?', ''],
+    'med4': ['?', ''],
+    'med5': ['?', ''],
+    'med6': ['?', ''],
+    'kam1': ['?', ''],
+    'kam2': ['?', ''],
+    'kam3': ['?', ''],
+    'kam4': ['?', ''],
+    'arsha': ['?', '']
 }
     
 # BELL_STATUS, CALLED_MINUTES_LEFT, CALLED_TIME (EPOCH)
