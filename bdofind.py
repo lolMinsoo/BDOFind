@@ -116,10 +116,10 @@ async def _update_bell():
         if BELL_SERVERS[bell_server][0] == 'YES':
             if round(time.time()) - BELL_SERVERS[bell_server][2] > 
             BELL_SERVERS[bell_server][1] * 60:
-                BELL_SERVERS[bell_server] == ['?', 0, 0]
+                BELL_SERVERS[bell_server] = ['?', 0, 0]
             else:
                 # called minutes - current time - called time
-                BELL_SERVERS[bell_server] == ['YES', round(BELL_SERVERS[bell_server][1] - 
+                BELL_SERVERS[bell_server] = ['YES', round(BELL_SERVERS[bell_server][1] - 
                 (time.time() - BELL_SERVERS[bell_server][2]) / 60), round(time.time)]
                 
 async def _bell_loop():
